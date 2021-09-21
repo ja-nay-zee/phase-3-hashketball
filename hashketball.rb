@@ -126,4 +126,59 @@ def game_hash
   }
 end
 
-# Write code here
+# helper method for accessing an array of all the players from both teams
+
+# def all_players(game_hash)
+#   game_hash.each do |players|
+# end
+# def all_players
+#   game_hash[:home][:players] + game_hash[:away][:players]
+# end
+
+
+# def num_points_scored(player_name)
+#   player = player_stats(player_name)
+#   player[:points]
+# end
+
+# def shoe_size(player_name)
+#   player = player_stats(player_name)
+#   player[:shoe]
+# end
+
+# helper method to find a team by thier team name
+# def find_team(team_name)
+  #find on with a hash returns an array with the first key/value that match with the condition
+  # team_info = game_hash.fin do |location, team_data|
+  #   team_data[:team_name] == team_name
+  # end
+  #return just the value (team_data) from the .find method
+#   team_info[1]
+# end
+
+
+
+def all_players
+  game_hash[:home][:players] + game_hash[:away][:players]
+end
+
+def num_points_scored(player_name)
+  player = player_stats(player_name)
+  player[:points]
+end
+
+def shoe_size(player_name)
+  player = player_stats(player_name)
+  player[:shoe]
+end
+
+# helper method to find a team by their team name
+def find_team(team_name)
+  # #find on with a hash returns an array with the first key and value that match the condition
+  team_info = game_hash.find do |location, team_data|
+    team_data[:team_name] == team_name
+  end
+
+  # return just the value (team_data) from the .find method
+  team_info[1]
+end
